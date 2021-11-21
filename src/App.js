@@ -1,12 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import "./App.css";
+import button from './Components/Login/UI/Button/button';
+import {BsFillCaretRightSquareFill} from 'react-icons/bs'
+import Appbar from './Components/Login/UI/Appbar/Index';
+
 
 function App() {
-  return (
-    <div className="App">
+
+
+
+  return <>
+   
+  <Appbar/>
+       <div className="container">
+    
+        <input type={Text}></input> 
       
-    </div>
-  );
+        <button className="btn btn-primary"> <BsFillCaretRightSquareFill/></button>
+        
+      </div>
+  
+    
+  
+  
+  
+     </>
+
 }
 
 export default App;
