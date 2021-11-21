@@ -2,26 +2,16 @@ import react from "react";
 
 
 function Appbar(){
-return (
-    <nav>
-    
-<container>
-<h1>logo</h1>
-<ul>
-
-    <li>
-        <h1>TESTE</h1>
-    </li>
-    
-</ul>
-
-
-
-</container>
-    
-    </nav>
-    )
-
-}
-
+    return (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <label className="navbar-brand">Dash</label>
+            <button className="navbar-toggler" type="button" data-toggle="colapse" data-target="#navbarNav">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+                
+            </div>
+        </nav>
+    );
+    }
 export default Appbar;
