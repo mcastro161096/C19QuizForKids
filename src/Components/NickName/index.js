@@ -15,11 +15,12 @@ function NickName() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const user = {
-          nick: nick
+        const jogador = {
+            id: 0,
+          nickName: nick
         };
     
-        axios.post(`https://localhost:44335/NickName/Create`, nick)
+        axios.post(`https://localhost:44335/NickName/`, {jogador})
           .then(res => {
             console.log(res);
             console.log(res.data);
