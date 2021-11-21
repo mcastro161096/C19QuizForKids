@@ -1,5 +1,4 @@
 import React from "react";
-import button from './Components/Login/UI/Button/button';
 import {BsFillCaretRightSquareFill} from 'react-icons/bs'
 
 function NickName() {
