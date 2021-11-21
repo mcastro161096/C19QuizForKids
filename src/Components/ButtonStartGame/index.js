@@ -9,7 +9,6 @@ export default function ButtonStartGame() {
             <div className="box ">
                 <div className="wrap">
                 <Link to="/nickname"> <button className="button">Start</button></Link>
-                {/* <Link to="/" className="navbar-brand">Dash</Link> */}
                 </div>
             </div>
         </div>
