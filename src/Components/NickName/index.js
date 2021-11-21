@@ -30,10 +30,16 @@ function NickName() {
         <form onSubmit={handleSubmit}>
         <div>
         
-        <input type="text" name="nick" placeholder="Nickname"></input> 
-      
-        <button type="submit" className="btn btn-primary"> <BsFillCaretRightSquareFill/></button>
+        <input type="text" name="nick" placeholder="Nickname"></input>
+        
+        <button type="submit" className="btn btn-primary"><BsFillCaretRightSquareFill/></button><br/>
+        {/* Botão de ranking para pular para a página /ranking
+         <button type="submit" className="btn btn-primary"> <BsFillCaretRightSquareFill/></button>*/}
         {/* <Link  to="/card"></Link> */}
+
+        <div className="wrap">
+          <Link to="/ranking"> <button className="button">Acessar Ranking</button></Link>
+        </div>
         </div>
         </form>
     );
