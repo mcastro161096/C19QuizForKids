@@ -28,19 +28,18 @@ function NickName() {
     }
     return (
         <form onSubmit={handleSubmit}>
-        <div>
+          <div>
         
-        <input type="text" name="nick" placeholder="Nickname"></input>
+            <input type="text" name="nick" placeholder="Nickname"></input>
         
-        <button type="submit" className="btn btn-primary"><BsFillCaretRightSquareFill/></button><br/>
-        {/* Botão de ranking para pular para a página /ranking
-         <button type="submit" className="btn btn-primary"> <BsFillCaretRightSquareFill/></button>*/}
-        {/* <Link  to="/card"></Link> */}
+            <button type="submit" className="btn btn-primary"><BsFillCaretRightSquareFill/></button><br/>
+            
+            {/* <Link  to="/card"></Link> */}
 
-        <div className="wrap">
-          <Link to="/ranking"> <button className="button">Acessar Ranking</button></Link>
-        </div>
-        </div>
+            <div className="">
+              <Link to="/ranking"> <button className="button">Acessar Ranking</button></Link>
+            </div>
+          </div>
         </form>
     );
 }
