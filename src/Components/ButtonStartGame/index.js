@@ -8,7 +8,7 @@ export default function ButtonStartGame() {
         <div className="container">
             <div className="box ">
                 <div className="wrap">
-                <Link to="/nickname"> <button className="button">Start</button></Link>
+                <Link to="/nickname"> <button className="buttostart">Start</button></Link>
                 </div>
             </div>
         </div>
