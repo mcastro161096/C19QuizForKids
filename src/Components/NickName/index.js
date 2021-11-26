@@ -2,7 +2,9 @@ import { React, useState } from "react";
 import { BsFillCaretRightSquareFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "../NickName/nickname.css"
 
+ 
 function NickName() {
   const [nick, setnick] = useState("");
 
@@ -31,14 +33,14 @@ function NickName() {
         <button type="submit" className="btn btn-primary">
           <BsFillCaretRightSquareFill />
         </button>
-        <br />
+        <br /><br />
 
         {/* <Link  to="/card"></Link> */}
 
         <div className="">
           <Link to="/ranking">
             {" "}
-            <button className="button">Acessar Ranking</button>
+            <button className="btnnick">Acessar Ranking</button>
           </Link>
         </div>
       </div>
