@@ -16,3 +16,13 @@
     -o-transition: all 0.15s ease;
     transition: all 0.15s ease; 
 }
+.table{
+    background: white;
+    border: solid #2FF0FF 1px;
+}
+.linha1{
+    background: #D00DA2;
+}
+.linha2{
+    background: #17FF84;
+}

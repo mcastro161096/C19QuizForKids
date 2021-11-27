@@ -7,10 +7,39 @@ function Ranking(){
 
     return(
         <div>
-            <div>
-                <h2>Exemplo de Ranking</h2><br/>
-                <h3>Primeiro da lista</h3><br/>
-                <h3>Segundo da lista</h3>
+            <div class="table">
+                
+                <table class="table table-striped">
+                    <thead class="linha1">
+                        <tr>
+                        <th scope="col">Posição</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Pontos</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody class="linha2">
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>300</td>
+                        
+                        </tr>
+                        <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>250</td>
+                        
+                        </tr>
+                        <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>200</td>
+                        
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         
             <div className="">
