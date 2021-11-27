@@ -8,7 +8,6 @@ import ButtonStartGame from './Components/ButtonStartGame';
 import Card from './Components/Card';
 import Ranking from './Components/Ranking';
 
-
 function App() {
 
 

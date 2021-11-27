@@ -1,25 +1,56 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"
 import "../Ranking/ranking.css"
+import TableRow from "../TableRow";
 
-function Ranking(){
+function Ranking() {
 
-    return(
+    const [listaRank, setListaRank] = useState([]);
+
+    // const lista = async () => await axios.get("https://localhost:44335/api/Ranking")
+    //     .then(res => {
+    //         console.log(res.data);
+
+    //     })
+    let lista = [];
+    const _init = async () => {
+        await axios.get("https://localhost:44335/api/Ranking")
+            .then((response) => {
+                lista = response.data;
+                setListaRank(response.data || []);
+                console.log(lista)
+            });
+
+    }
+
+    const get = (nome = '') => {
+        _init();
+    }
+
+    useEffect(() => {
+        get();
+    }, []);
+
+    return (
         <div>
-            <div class="table">
-                
-                <table class="table table-striped">
-                    <thead class="linha1">
+            <div className="table">
+
+                <table className="table table-striped">
+                    <thead className="linha1">
                         <tr>
-                        <th scope="col">Posição</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Pontos</th>
-                        
+                            <th scope="col">Posição</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Pontos</th>
+
                         </tr>
                     </thead>
-                    <tbody class="linha2">
-                        <tr>
+                    <tbody className="linha2">
+                        {(lista.length > 0) && lista.map((rank, i) => {
+                            return <TableRow rank={rank} />
+                        }
+                        )}
+                        {/* <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>
                         <td>300</td>
@@ -36,7 +67,7 @@ function Ranking(){
                         <td>Larry</td>
                         <td>200</td>
                         
-                        </tr>
+                        </tr>*/}
                     </tbody>
                 </table>
 
@@ -50,8 +81,8 @@ function Ranking(){
             </div>
 
         </div>
-        
-        
+
+
     );
 
 }
