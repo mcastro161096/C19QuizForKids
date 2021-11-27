@@ -20,7 +20,7 @@ function NickName() {
       nickName: nick,
     };
 
-    axios.post(`https://localhost:44335/NickName/`, { jogador }).then((res) => {
+    axios.post(`https://localhost:5001/api/NickName/`, { jogador }).then((res) => {
       console.log(res);
       console.log(res.data);
     });
@@ -28,11 +28,14 @@ function NickName() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
+        
         <input type="text" name="nick" placeholder="Nickname"></input>
 
         <button type="submit" className="btn btn-primary">
           <BsFillCaretRightSquareFill />
         </button>
+
+        
         <br /><br />
 
         {/* <Link  to="/card"></Link> */}

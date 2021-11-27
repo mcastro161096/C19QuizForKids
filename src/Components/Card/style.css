@@ -1,4 +1,4 @@
-.container {
+.containercard {
     width: 100vw;
     height: 100vh;
     background: #00A6FF;
@@ -6,9 +6,28 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    
     }
     .boxcard {
-    width: 800px;
-    height: 600px;
+        
+    width: 600px;
+    height: 400px;
+    
     background:red;
+    
+    }
+
+    .texttop{
+        
+        
+font-family: Verdana, sans-serif;
+text-align-last: center;
+tab-size: 1;
+letter-spacing: 1px;
+line-height: 1.8;
+overflow-wrap: break-word;
+text-align: justify;
+text-transform: capitalize;
+text-indent: 20px;
+color: white;
     }
