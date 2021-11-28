@@ -3,42 +3,52 @@ import { BsFillCaretRightSquareFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../NickName/nickname.css"
+import { useHistory } from "react-router-dom";
 
- 
+
 function NickName() {
   const [nick, setnick] = useState("");
 
-  const handleChange = (event) => {
-    setnick({ nick: event.target.value });
-  };
+  const history = useHistory();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleNick = (event) => {
+    setnick(event.target.value);
+  }
 
+  const efetuarPost = async () => {
     const jogador = {
       id: 0,
       nickName: nick,
     };
+    let retorno = await axios.post(`https://localhost:44335/api/nickName/create`, jogador);
+    return retorno.data;
+  }
 
-    axios.post(`https://localhost:5001/api/NickName/`, { jogador }).then((res) => {
-      console.log(res);
-      console.log(res.data);
-    });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const resposta = await efetuarPost();
+      if (resposta.success) {
+        localStorage.setItem('NickName', resposta.nickname);
+        history.push("/card");
+      }
+    } catch (error) {
+      alert("Erro ao salvar NickName " + error);
+    }
+
   };
+
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        
-        <input type="text" name="nick" placeholder="Nickname"></input>
-
+        <input type="text" name="nick" value={nick} onChange={handleNick} placeholder="Nickname"></input>
         <button type="submit" className="btn btn-primary">
           <BsFillCaretRightSquareFill />
         </button>
-
-        
         <br /><br />
-
-        {/* <Link  to="/card"></Link> */}
 
         <div className="">
           <Link to="/ranking">
