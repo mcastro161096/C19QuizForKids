@@ -7,29 +7,16 @@ import TableRow from "../TableRow";
 function Ranking() {
 
     const [listaRank, setListaRank] = useState([]);
-
-    // const lista = async () => await axios.get("https://localhost:44335/api/Ranking")
-    //     .then(res => {
-    //         console.log(res.data);
-
-    //     })
-    let lista = [];
-    const _init = async () => {
-        await axios.get("https://localhost:44335/api/Ranking")
+    
+    const _init = async () => { 
+         axios.get("https://localhost:44335/api/Ranking")
             .then((response) => {
-                lista = response.data;
                 setListaRank(response.data || []);
-                console.log(lista)
             });
-
-    }
-
-    const get = (nome = '') => {
-        _init();
-    }
-
+        }
+    
     useEffect(() => {
-        get();
+        _init();
     }, []);
 
     return (
@@ -46,28 +33,10 @@ function Ranking() {
                         </tr>
                     </thead>
                     <tbody className="linha2">
-                        {(lista.length > 0) && lista.map((rank, i) => {
-                            return <TableRow rank={rank} />
+                        { listaRank.map((rank, i) => {
+                            return <TableRow key={rank.id} rank={rank} />
                         }
                         )}
-                        {/* <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>300</td>
-                        
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>250</td>
-                        
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>200</td>
-                        
-                        </tr>*/}
                     </tbody>
                 </table>
 
