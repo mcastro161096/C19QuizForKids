@@ -3,7 +3,7 @@ import { BsVolumeDownFill } from "react-icons/bs";
 
 import "./style.css"
 
-function Pergunta({pergunta}) {
+function Explicacao({explicacao}) {
 
     
     let voices = [];
@@ -31,7 +31,7 @@ function Pergunta({pergunta}) {
 
 const ouvir = (event) =>{
 event.preventDefault();
-const texto = document.querySelector('#textoPergunta');
+const texto = document.querySelector('#textoExplicacao');
     SpeakText(texto.innerHTML);
 }
 
@@ -41,8 +41,8 @@ useEffect(() => {
 
 
     return (
-        <div  className="pergunta">
-            <label id="textoPergunta">{pergunta}</label>
+        <div  className="explicacao">
+            <label id="textoExplicacao">{explicacao}</label>
             <button id="ouvir" onClick={ouvir} className="btn btn-primary ouvir">
             <BsVolumeDownFill size={30}/>
             </button>
@@ -50,4 +50,4 @@ useEffect(() => {
     )
 }
 
-export default Pergunta;
+export default Explicacao;

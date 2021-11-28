@@ -5,6 +5,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Pergunta from "../Pergunta";
 import BotaoResposta from "../BotaoResposta";
+import Explicacao from "../Explicacao";
 import "./style.css";
 import pergunta1 from "./pergunta1.png";
 import pergunta2 from "./pergunta2.png";
@@ -17,6 +18,7 @@ function Card(props) {
   const listaPerguntastemp = [{ id: 1, texto: "O covid-19 é um vírus?" }, { id: 2, texto: "O covid-19 fal mal à saúde?" }]
   const listaRespostastemp = [{ idPergunta: 1, valor: true }]
   let pergunta = "O covid-19 é um vírus?";
+  let explicacao = "A covid-19 é a doença, que é causada pelo Corona Vírus!"
 
   return (
     <div className="containercard">
@@ -27,6 +29,7 @@ function Card(props) {
           <img style={{width:"400px", height:"250px",marginTop:"5px"}} src={pergunta2}></img>
 
         </div>
+        <Explicacao explicacao={explicacao} />
 
         <div className="divBotoesResposta">
           <BotaoResposta color="verde" texto="Verdadeiro" />
