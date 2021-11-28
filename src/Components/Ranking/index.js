@@ -34,7 +34,7 @@ function Ranking() {
                     </thead>
                     <tbody className="linha2">
                         { listaRank.map((rank, i) => {
-                            return <TableRow key={rank.id} rank={rank} />
+                            return <TableRow key={rank.id} rank={rank} posicao={i + 1} />
                         }
                         )}
                     </tbody>

@@ -2,10 +2,10 @@ import react from "react";
 
 
 
-function TableRow({rank}) {
+function TableRow({rank, posicao}) {
     return (
         <tr>
-            <th scope="row">{rank.id}</th>
+            <th scope="row">{posicao}</th>
             <td>{rank.nickName}</td>
             <td>{rank.pontuacao}</td>
         </tr>
