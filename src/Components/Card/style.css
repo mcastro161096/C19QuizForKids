@@ -31,3 +31,9 @@ text-transform: capitalize;
 text-indent: 20px;
 color: white;
     }
+
+    .divBotoesResposta{
+        margin-top: 60%;
+        display: flex;
+    flex-direction: row;
+    }

@@ -1,0 +1,12 @@
+.botaoResposta{
+    width: 400px;
+    height: 100px;
+}
+
+.verde{
+    background-color: rgb(67, 175, 67);
+}
+
+.vermelho{
+    background-color: rgb(190, 47, 47);
+}

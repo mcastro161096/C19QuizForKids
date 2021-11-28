@@ -12,8 +12,6 @@ function Pergunta({pergunta}) {
     speechSynthesis.addEventListener("voiceschanged", () => {
         voices = speechSynthesis.getVoices();
                 SetVoice();
-                console.log(voices);
-                SpeakText("Fale agora o nome do item1");   
     });
     
     function SetVoice() {
