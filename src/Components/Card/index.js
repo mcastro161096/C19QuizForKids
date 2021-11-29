@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { BsFillCaretRightSquareFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -7,33 +7,51 @@ import Pergunta from "../Pergunta";
 import BotaoResposta from "../BotaoResposta";
 import Explicacao from "../Explicacao";
 import "./style.css";
-import pergunta1 from "./pergunta1.png";
-import pergunta2 from "./pergunta2.png";
+
 
 
 function Card(props) {
   const [listaPerguntas, setlistaPerguntas] = useState([])
   const [listaRespostas, setlistaRespostas] = useState([])
+  const [perguntaAtual, setPerguntaAtual] = useState({})
+  const [index, setindex] = useState(0)
 
-  const listaPerguntastemp = [{ id: 1, texto: "O covid-19 é um vírus?" }, { id: 2, texto: "O covid-19 fal mal à saúde?" }]
-  const listaRespostastemp = [{ idPergunta: 1, valor: true }]
-  let pergunta = "O covid-19 é um vírus?";
-  let explicacao = "A covid-19 é a doença, que é causada pelo Corona Vírus!"
+  let listaPerguntastemp = [];
+
+  const _init = async () => {
+    axios.get("https://localhost:44335/api/Card")
+      .then((response) => {
+        listaPerguntastemp = response.data;
+        setlistaPerguntas(response.data || []);
+        setPerguntaAtual(listaPerguntastemp[index]);
+      });
+  }
+
+  const handleResposta = () => {
+    setPerguntaAtual(listaPerguntas[index + 1]);
+    setindex(index + 1);
+    console.log("passou aqui");
+  }
+
+  useEffect(() => {
+    _init();
+
+  }, []);
 
   return (
     <div className="containercard">
       <div className="boxcard">
         <div className="texttop">
-          <Pergunta pergunta={pergunta} />
+          <Pergunta pergunta={perguntaAtual.pergunta || ""} />
 
-          <img style={{width:"400px", height:"250px",marginTop:"5px"}} src={pergunta2}></img>
+          <img style={{ width: "400px", height: "250px", marginTop: "5px" }} src={perguntaAtual.imagem || ""} alt="imagem"></img>
 
         </div>
-        <Explicacao explicacao={explicacao} />
+        <Explicacao explicacao={perguntaAtual.explicacao || ""} />
 
         <div className="divBotoesResposta">
-          <BotaoResposta color="verde" texto="Verdadeiro" />
-          <BotaoResposta color="vermelho" texto="Falso" />
+          <BotaoResposta color="verde" texto="Verdadeiro" handleResposta={handleResposta} />
+          <BotaoResposta color="vermelho" texto="Falso" handleResposta={handleResposta} />
         </div>
       </div>
     </div>
