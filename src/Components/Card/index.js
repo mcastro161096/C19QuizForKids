@@ -19,7 +19,7 @@ function Card(props) {
   const history = useHistory();
 
   let listaPerguntastemp = [];
-
+  let pontostemp = 0;
   const _init = async () => {
     axios.get("https://localhost:44335/api/Card")
       .then((response) => {
@@ -34,8 +34,8 @@ function Card(props) {
     let resposta = event.target.innerHTML === "Verdadeiro" ? true : false;
     if (perguntaAtual.resposta === resposta) {
       toast.success("Resposta correta!");
-      localStorage.setItem('pontos', pontos + 20)
       setpontos(pontos + 20);
+      pontostemp = pontos + 20;
       SpeakText("Resposta correta!");
     }
     else {
@@ -50,9 +50,10 @@ function Card(props) {
     else{
       const ranking = {
         nickname: localStorage.getItem('NickName'),
-        pontuacao: pontos
+        pontuacao: pontostemp
       };
       axios.post("https://localhost:44335/api/ranking", ranking);
+      localStorage.clear();
       history.push("/fimquiz");
     }
 
