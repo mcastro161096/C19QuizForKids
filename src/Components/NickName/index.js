@@ -50,7 +50,7 @@ function NickName() {
         </button>
         <br /><br />
 
-        <div className="">
+        <div>
           <Link to="/ranking">
             {" "}
             <button className="btnnick">Acessar Ranking</button>
