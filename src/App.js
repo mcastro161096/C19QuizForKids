@@ -9,6 +9,7 @@ import NickName from './Components/NickName';
 import ButtonStartGame from './Components/ButtonStartGame';
 import Card from './Components/Card';
 import Ranking from './Components/Ranking';
+import FimQuiz from './Components/FimQuiz';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/nickname" component={NickName} />
                 <Route path="/card" component={Card} />
                 <Route path="/ranking" component={Ranking} />
+                <Route path="/fimquiz" component={FimQuiz} />
                 {/* <Route path="/consultas" component={Consultas} />
                 <Route path="/faturamento" component={Faturamento} /> */}
               </Switch>

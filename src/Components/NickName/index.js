@@ -32,6 +32,7 @@ function NickName() {
       const resposta = await efetuarPost();
       if (resposta.success) {
         localStorage.setItem('NickName', resposta.nickname);
+        localStorage.setItem('pontos', 0)
         history.push("/card");
       }
     } catch (error) {

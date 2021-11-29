@@ -4,6 +4,7 @@ import Pergunta from "../Pergunta";
 import BotaoResposta from "../BotaoResposta";
 import Explicacao from "../Explicacao";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import "./style.css";
 
@@ -14,6 +15,8 @@ function Card(props) {
   const [listaRespostas, setlistaRespostas] = useState([])
   const [perguntaAtual, setPerguntaAtual] = useState({})
   const [index, setindex] = useState(0)
+  const [pontos, setpontos] = useState(0)
+  const history = useHistory();
 
   let listaPerguntastemp = [];
 
@@ -31,18 +34,28 @@ function Card(props) {
     let resposta = event.target.innerHTML === "Verdadeiro" ? true : false;
     if (perguntaAtual.resposta === resposta) {
       toast.success("Resposta correta!");
-      console.log("passou aqui");
+      localStorage.setItem('pontos', pontos + 20)
+      setpontos(pontos + 20);
       SpeakText("Resposta correta!");
     }
     else {
       toast.error("Resposta incorreta.");
-      console.log("ou aqui");
       SpeakText("Resposta incorreta.");
     }
+
+    if (index + 1 < listaPerguntas.length){
     setPerguntaAtual(listaPerguntas[index + 1]);
     setindex(index + 1);
+    }
+    else{
+      const ranking = {
+        nickname: localStorage.getItem('NickName'),
+        pontuacao: pontos
+      };
+      axios.post("https://localhost:44335/api/ranking", ranking);
+      history.push("/fimquiz");
+    }
 
-    console.log(event.target.innerHTML);
   }
 
   let voices = [];
