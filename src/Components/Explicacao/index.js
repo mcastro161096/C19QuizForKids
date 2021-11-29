@@ -22,9 +22,7 @@ function Explicacao({explicacao}) {
     }
     
     function SpeakText(text) {
-        if (utterance.voice.name != "Google português do Brasil") {
-            SetVoice();
-        }
+        SetVoice();
         utterance.text = text;
         speechSynthesis.speak(utterance);
     }
