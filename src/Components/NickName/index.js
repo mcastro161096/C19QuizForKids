@@ -32,7 +32,6 @@ function NickName() {
       const resposta = await efetuarPost();
       if (resposta.success) {
         localStorage.setItem('NickName', resposta.nickname);
-        localStorage.setItem('pontos', 0)
         history.push("/card");
       }
     } catch (error) {
@@ -45,7 +44,7 @@ function NickName() {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <input type="text" name="nick" value={nick} onChange={handleNick} placeholder="Nickname"></input>
+        <input className="nickname" type="text" name="nick" value={nick} onChange={handleNick} placeholder="Nickname"></input>
         <button type="submit" className="btn btn-primary">
           <BsFillCaretRightSquareFill />
         </button>
