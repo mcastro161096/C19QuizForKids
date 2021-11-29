@@ -1,6 +1,8 @@
 import React from 'react';
 import "./App.css";
 import {Switch, Route} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import GlobalStyle from "./styles";
 
 import Appbar from './Components/Appbar';
 import NickName from './Components/NickName';
@@ -28,6 +30,8 @@ function App() {
                 <Route path="/faturamento" component={Faturamento} /> */}
               </Switch>
             </div>
+            <GlobalStyle />
+            <ToastContainer />
           </div>
         
       </div>
